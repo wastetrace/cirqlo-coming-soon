@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cirqlo - Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('assets/img/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center max-w-xl mx-auto p-6">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Cirqlo Ecotech</h1>
+        <p class="text-lg text-gray-600 mb-6">We are launching soon. Stay tuned!</p>
+
+        <!-- Countdown -->
+        <div id="countdown" class="flex justify-center space-x-4 text-2xl font-semibold text-[#FA6559] mb-6"></div>
+
+        <!-- Instagram Link -->
+        <a href="https://www.instagram.com/cirqloecotech/" target="_blank"
+           class="inline-block bg-[#FA6559] text-white px-6 py-3 rounded-full shadow-md hover:bg-[#e2544a] transition">
+            Follow us on Instagram
+        </a>
+    </div>
+
+    <script>
+        // Countdown Script
+        const targetDate = new Date("November 1, 2025 00:00:00").getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `
+                <div>${days}<span class="block text-sm text-gray-500">Days</span></div>
+                <div>${hours}<span class="block text-sm text-gray-500">Hours</span></div>
+                <div>${minutes}<span class="block text-sm text-gray-500">Minutes</span></div>
+                <div>${seconds}<span class="block text-sm text-gray-500">Seconds</span></div>
+            `;
+        }, 1000);
+    </script>
+</body>
+</html>
